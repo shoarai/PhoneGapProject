@@ -89,7 +89,7 @@ describe('Tasks', function() {
 /**
  * タスク群グループのテスト
  */
-/*describe('TasksGroup', function() {
+describe('TasksGroup', function() {
   var collection = null;
   var name = 'タスク群名'; 
   
@@ -97,10 +97,10 @@ describe('Tasks', function() {
     collection = new TasksGroup();
   });
   it('should add the task', function() {
-    var tasks = new Tasks({'name': name});
-    collection.add(tasks);
-    expect(collection.at(0).get('name')).toBe(tasks);
+    var tasks = new Tasks2({'name': name});
+    collection.collection = tasks;
+    expect(collection.collection.at(0).get('name')).toBe(tasks.name);
   });
 });
-*/
+
 

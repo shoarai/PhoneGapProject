@@ -32,10 +32,53 @@ var  Task = Backbone.Model.extend({
 var Tasks2 = Backbone.Collection.extend({
   model: Task,
   initialize: function(name) {
+    var taskAllString =
+      '[' +
+        '{"name":"仕事", "tasks":' +
+          '[' +
+            '{"name":"テスト１", "checked":true},' +
+            '{"name":"試してみる", "checked":false}' +
+          ']' +
+        '},' +
+        '{"name":"作曲", "tasks":' +
+          '[' +
+            '{"name":"テスト２", "checked":true},' +
+            '{"name":"試してみる２", "checked":false}' +
+          ']' +
+        '}' +
+      ']';
+    var taskAll = JSON.parse(taskAllString);
+    
     // タスク群名を設定する
     this.name = name;
   }
 });
+
+/**
+ * 
+ */
+var TasksGroup = Backbone.Collection.extend({
+  collection: Tasks2,
+  taskMenus: ['仕事', '作曲'],         // タスクメニュー
+  initialize: function() {
+//    localStorage.menu;
+    
+    var that = this;
+    $.each(that.taskMenus, function(index, menu) {
+      
+    });
+    
+    var tasks =
+      '[' +
+        '{"name":"テスト１", "checked":true},' +
+        '{"name":"試してみる", "checked":false}' +
+      ']';
+    
+    
+  }
+});
+
+
 
 /**
  * タスク群
@@ -103,7 +146,6 @@ var TasksAll = Backbone.Collection.extend({
           ']' +
         '}' +
       ']';
-    
     var taskAll = JSON.parse(taskAllString);
     
     // 表示位置の初期化
