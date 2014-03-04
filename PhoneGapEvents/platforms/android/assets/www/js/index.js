@@ -36,21 +36,24 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+      console.log('test');
       app.receivedEvent('deviceready');
-      document.addEventListener("pause", onPause, false);
-      document.addEventListener("resume", onResume, false);
-      document.addEventListener("offline", onOffline, false);
-      document.addEventListener("backbutton", onBackKeyDown, false);
-      document.addEventListener("backbutton", onBackKeyDown, false);
-      window.addEventListener("batterycritical", onBatteryCritical, false);
-      window.addEventListener("batterylow", onBatteryLow, false);
-      window.addEventListener("batterystatus", onBatteryStatus, false);
-      document.addEventListener("menubutton", onMenuKeyDown, false);
-      document.addEventListener("searchbutton", onSearchKeyDown, false);
-      document.addEventListener("startcallbutton", onStartCallKeyDown, false);
-      document.addEventListener("endcallbutton", onEndCallKeyDown, false);
-      document.addEventListener("volumedownbutton", onVolumeDownKeyDown, false);
-      document.addEventListener("volumeupbutton", onVolumeUpKeyDown, false);
+//      document.addEventListener("pause", app.onPause, false);
+//      document.addEventListener("resume", app.onResume, false);
+//        alert('test');
+      document.addEventListener("offline", app.onOffline, false);
+/*      document.addEventListener("backbutton", app.onBackKeyDown, false);
+      document.addEventListener("backbutton", app.onBackKeyDown, false);
+      window.addEventListener("batterycritical", app.onBatteryCritical, false);
+      window.addEventListener("batterylow", app.onBatteryLow, false);
+      window.addEventListener("batterystatus", app.onBatteryStatus, false);
+      document.addEventListener("menubutton", app.onMenuKeyDown, false);
+      document.addEventListener("searchbutton", app.onSearchKeyDown, false);
+      document.addEventListener("startcallbutton", app.onStartCallKeyDown, false);
+      document.addEventListener("endcallbutton", app.onEndCallKeyDown, false);
+      document.addEventListener("volumedownbutton", app.onVolumeDownKeyDown, false);
+      document.addEventListener("volumeupbutton", app.onVolumeUpKeyDown, false);
+*/      console.log('できた');
     },
     
     /**
