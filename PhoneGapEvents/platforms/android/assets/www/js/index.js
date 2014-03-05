@@ -28,21 +28,15 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
       document.addEventListener('deviceready', this.onDeviceReady, false);
-//      document.addEventListener("online", app.onOnline, false);
+      document.addEventListener("online", app.onOnline, false);
+      document.addEventListener("offline", app.onOffline, false);
     },
     
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicity call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-      console.log('test');
-      app.receivedEvent('deviceready');
-//      document.addEventListener("pause", app.onPause, false);
-//      document.addEventListener("resume", app.onResume, false);
-//        alert('test');
+    bindEventsAfterDeviceReady: function() {
+      document.addEventListener("pause", app.onPause, false);
+      document.addEventListener("resume", app.onResume, false);
       document.addEventListener("offline", app.onOffline, false);
-/*      document.addEventListener("backbutton", app.onBackKeyDown, false);
+      document.addEventListener("backbutton", app.onBackKeyDown, false);
       document.addEventListener("backbutton", app.onBackKeyDown, false);
       window.addEventListener("batterycritical", app.onBatteryCritical, false);
       window.addEventListener("batterylow", app.onBatteryLow, false);
@@ -53,7 +47,22 @@ var app = {
       document.addEventListener("endcallbutton", app.onEndCallKeyDown, false);
       document.addEventListener("volumedownbutton", app.onVolumeDownKeyDown, false);
       document.addEventListener("volumeupbutton", app.onVolumeUpKeyDown, false);
-*/      console.log('できた');
+      alert('after bindEvents2');
+    },
+    
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicity call 'app.receivedEvent(...);'
+    onDeviceReady: function() {
+      var newtext = document.createTextNode('ON'),
+      p1 = document.getElementById("deviceready2");
+      p1.appendChild(newtext);
+      
+      app.receivedEvent('deviceready');
+      
+      //
+      app.bindEventsAfterDeviceReady();
     },
     
     /**
