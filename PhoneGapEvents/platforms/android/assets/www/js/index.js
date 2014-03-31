@@ -28,26 +28,24 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
       document.addEventListener('deviceready', this.onDeviceReady, false);
-      document.addEventListener("online", app.onOnline, false);
-      document.addEventListener("offline", app.onOffline, false);
+      document.addEventListener("online"     , app.onOnline      , false);
+      document.addEventListener("offline"    , app.onOffline     , false);
     },
     
     bindEventsAfterDeviceReady: function() {
-      document.addEventListener("pause", app.onPause, false);
-      document.addEventListener("resume", app.onResume, false);
-      document.addEventListener("offline", app.onOffline, false);
-      document.addEventListener("backbutton", app.onBackKeyDown, false);
-      document.addEventListener("backbutton", app.onBackKeyDown, false);
-      window.addEventListener("batterycritical", app.onBatteryCritical, false);
-      window.addEventListener("batterylow", app.onBatteryLow, false);
-      window.addEventListener("batterystatus", app.onBatteryStatus, false);
-      document.addEventListener("menubutton", app.onMenuKeyDown, false);
-      document.addEventListener("searchbutton", app.onSearchKeyDown, false);
-      document.addEventListener("startcallbutton", app.onStartCallKeyDown, false);
-      document.addEventListener("endcallbutton", app.onEndCallKeyDown, false);
+      document.addEventListener("pause"           , app.onPause,             false);
+      document.addEventListener("resume"          , app.onResume,            false);
+      document.addEventListener("backbutton"      , app.onBackKeyDown,       false);
+      document.addEventListener("backbutton"      , app.onBackKeyDown,       false);
+        window.addEventListener("batterycritical" , app.onBatteryCritical,   false);
+        window.addEventListener("batterylow"      , app.onBatteryLow,        false);
+        window.addEventListener("batterystatus"   , app.onBatteryStatus,     false);
+      document.addEventListener("menubutton"      , app.onMenuKeyDown,       false);
+      document.addEventListener("searchbutton"    , app.onSearchKeyDown,     false);
+      document.addEventListener("startcallbutton" , app.onStartCallKeyDown,  false);
+      document.addEventListener("endcallbutton"   , app.onEndCallKeyDown,    false);
       document.addEventListener("volumedownbutton", app.onVolumeDownKeyDown, false);
-      document.addEventListener("volumeupbutton", app.onVolumeUpKeyDown, false);
-      alert('after bindEvents2');
+      document.addEventListener("volumeupbutton"  , app.onVolumeUpKeyDown,   false);
     },
     
     // deviceready Event Handler
@@ -55,33 +53,28 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-      var newtext = document.createTextNode('ON'),
-      p1 = document.getElementById("deviceready2");
-      p1.appendChild(newtext);
-      
       app.receivedEvent('deviceready');
       
-      //
       app.bindEventsAfterDeviceReady();
     },
     
     /**
      * Logを表示する
      */
-    drawLog: function(message) {
+    showLog: function(message) {
       alert(message);
     },
     
     // Handle the pause event
     //
     onPause: function() {
-      app.drawLog('onPause');
+      app.showLog('onPause');
     },
     
     // Handle the resume event
     //
     onResume: function() {
-      app.drawLog('onResume');
+      app.showLog('onResume');
       
       // for ios
       setTimeout(function() {
@@ -92,76 +85,76 @@ var app = {
     // Handle the online event
     //
     onOnline: function() {
-      app.drawLog('onOnline');
+      app.showLog('onOnline');
     },
     
     // Handle the offline event
     //
     onOffline: function() {
-      app.drawLog('onOffline');
+      app.showLog('onOffline');
     },
 
     // Handle the back button
     //
     onBackKeyDown: function() {
-      app.drawLog('onBackKeyDown');
+      app.showLog('onBackKeyDown');
     },
     
     // Handle the batterycritical event
     //
     onBatteryCritical: function(info) {
-      app.drawLog('onBatteryCritical' + 'Battery Level Critical ' + info.level + '%\nRecharge Soon!');
+      app.showLog('onBatteryCritical' + 'Battery Level Critical ' + info.level + '%\nRecharge Soon!');
 //      alert("Battery Level Critical " + info.level + "%\nRecharge Soon!");
     },
 
     // Handle the batterylow event
     //
     onBatteryLow: function(info) {
-      app.drawLog('onBatteryLow: ' + 'Battery Level Low ' + info.level + '%');
+      app.showLog('onBatteryLow: ' + 'Battery Level Low ' + info.level + '%');
 //      alert("Battery Level Low " + info.level + "%");
     },
     
     // Handle the batterystatus event
     //
     onBatteryStatus: function(info) {
-      app.drawLog('onBatteryStatus: ' + 'Level: ' + info.level + ' isPlugged: ' + info.isPlugged);
+      app.showLog('onBatteryStatus: ' + 'Level: ' + info.level + ' isPlugged: ' + info.isPlugged);
 //      console.log("Level: " + info.level + " isPlugged: " + info.isPlugged);
     },
 
     // Handle the menu button
     //
     onMenuKeyDown: function() {
-      app.drawLog('onMenuKeyDown');
+      app.showLog('onMenuKeyDown');
     },
 
     // Handle the search button
     //
     onSearchKeyDown: function() {
-      app.drawLog('onSearchKeyDown');
+      app.showLog('onSearchKeyDown');
     },
 
     // Handle the start call button
     //
     onStartCallKeyDown: function() {
-      app.drawLog('onStartCallKeyDown');
+      app.showLog('onStartCallKeyDown');
     },
     
     // Handle the end call button
     //
     onEndCallKeyDown: function() {
-      app.drawLog('onEndCallKeyDown');
+      app.showLog('onEndCallKeyDown');
     },
 
     // Handle the volume down button
     //
     onVolumeDownKeyDown: function() {
-      app.drawLog('onVolumeDownKeyDown');
+      app.showLog('onVolumeDownKeyDown');
     },
 
     // Handle the volume up button
     //
     onVolumeUpKeyDown: function() {
-      app.drawLog('onVolumeUpKeyDown');
+      app.showLog('onVolumeUpKeyDown');
     },
     
     // Update DOM on a Received Event
